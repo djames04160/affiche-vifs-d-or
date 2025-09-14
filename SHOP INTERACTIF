@@ -558,7 +558,7 @@
         </div>
         
         <div class="products">
-            <div class="product-item" onclick="openTicket('Armure complète mythique (hors tenue tek)', 1000, '🛡️')">
+            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Armure complète mythique (hors tenue tek)', 1000, '🛡️', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🛡️</div>
                 <div class="product-info">
                     <div class="product-name">1 Armure complète mythique<br>(hors tenue tek)</div>
@@ -568,12 +568,12 @@
                         <div class="vif-coin">V</div>
                     </div>
                 </div>
-                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Armure complète mythique (hors tenue tek)', 1000, '🛡️')">
+                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Armure complète mythique (hors tenue tek)', 1000, '🛡️', this.parentElement.getAttribute('data-draft-ticket-id'))">
                     Acheter
                 </button>
             </div>
             
-            <div class="product-item" onclick="openTicket('Armure tek complète', 1500, '🤖')">
+            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Armure tek complète', 1500, '🤖', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🤖</div>
                 <div class="product-info">
                     <div class="product-name">1 Armure tek complète</div>
@@ -583,12 +583,12 @@
                         <div class="vif-coin">V</div>
                     </div>
                 </div>
-                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Armure tek complète', 1500, '🤖')">
+                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Armure tek complète', 1500, '🤖', this.parentElement.getAttribute('data-draft-ticket-id'))">
                     Acheter
                 </button>
             </div>
             
-            <div class="product-item" onclick="openTicket('Outil mythique', 250, '⚒️')">
+            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Outil mythique', 250, '⚒️', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">⚒️</div>
                 <div class="product-info">
                     <div class="product-name">1 Outil mythique</div>
@@ -598,12 +598,12 @@
                         <div class="vif-coin">V</div>
                     </div>
                 </div>
-                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Outil mythique', 250, '⚒️')">
+                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Outil mythique', 250, '⚒️', this.parentElement.getAttribute('data-draft-ticket-id'))">
                     Acheter
                 </button>
             </div>
             
-            <div class="product-item" onclick="openTicket('Arme mythique sauf tek', 500, '⚔️')">
+            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Arme mythique sauf tek', 500, '⚔️', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">⚔️</div>
                 <div class="product-info">
                     <div class="product-name">1 Arme mythique sauf tek</div>
@@ -613,12 +613,12 @@
                         <div class="vif-coin">V</div>
                     </div>
                 </div>
-                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Arme mythique sauf tek', 500, '⚔️')">
+                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Arme mythique sauf tek', 500, '⚔️', this.parentElement.getAttribute('data-draft-ticket-id'))">
                     Acheter
                 </button>
             </div>
             
-            <div class="product-item" onclick="openTicket('Selle mythique', 500, '🐎')">
+            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Selle mythique', 500, '🐎', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🐎</div>
                 <div class="product-info">
                     <div class="product-name">1 Selle mythique</div>
@@ -628,12 +628,12 @@
                         <div class="vif-coin">V</div>
                     </div>
                 </div>
-                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Selle mythique', 500, '🐎')">
+                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Selle mythique', 500, '🐎', this.parentElement.getAttribute('data-draft-ticket-id'))">
                     Acheter
                 </button>
             </div>
             
-            <div class="product-item" onclick="openTicket('Canne à pêche mythique', 1000, '🎣')">
+            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Canne à pêche mythique', 1000, '🎣', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🎣</div>
                 <div class="product-info">
                     <div class="product-name">1 Canne à pêche mythique</div>
@@ -643,7 +643,7 @@
                         <div class="vif-coin">V</div>
                     </div>
                 </div>
-                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Canne à pêche mythique', 1000, '🎣')">
+                <button class="buy-button" onclick="event.stopPropagation(); openTicket('Canne à pêche mythique', 1000, '🎣', this.parentElement.getAttribute('data-draft-ticket-id'))">
                     Acheter
                 </button>
             </div>
@@ -662,6 +662,7 @@
                     <div class="selected-item">
                         <strong>ARTICLE SÉLECTIONNÉ:</strong>
                         <div id="selectedItem" style="margin-top: 15px;"></div>
+                        <div id="draftTicketId" style="margin-top: 10px; font-family: 'Orbitron', monospace; color: #00ff7f; font-size: 0.9em;"></div>
                     </div>
                     
                     <div class="form-group">
@@ -688,8 +689,8 @@
     <script>
         let selectedProduct = {};
         
-        function openTicket(name, price, icon) {
-            selectedProduct = { name, price, icon };
+        function openTicket(name, price, icon, draftTicketId) {
+            selectedProduct = { name, price, icon, draftTicketId };
             
             document.getElementById('selectedItem').innerHTML = `
                 <div style="display: flex; align-items: center; gap: 20px;">
@@ -700,6 +701,8 @@
                     </div>
                 </div>
             `;
+            
+            document.getElementById('draftTicketId').textContent = `ID Draft Bot: ${draftTicketId}`;
             
             document.getElementById('ticketModal').style.display = 'block';
             document.getElementById('ticketForm').style.display = 'flex';
@@ -716,34 +719,3 @@
             
             if (!discordName) {
                 alert('Veuillez entrer votre nom Discord!');
-                return;
-            }
-            
-            // Générer un numéro de ticket Draft Bot
-            const ticketNumber = 'ARK-' + Math.floor(Math.random() * 90000) + 10000;
-            document.getElementById('ticketNum').textContent = ticketNumber;
-            
-            // Simuler l'ouverture du ticket Draft Bot
-            document.getElementById('ticketForm').style.display = 'none';
-            document.getElementById('ticketSuccess').style.display = 'block';
-            
-            console.log('Ticket Draft Bot ARK CHILL FAMILY créé:', {
-                ticketNumber,
-                product: selectedProduct,
-                discordUser: discordName
-            });
-            
-            setTimeout(() => {
-                console.log(`Draft Bot ARK: Ouverture du ticket pour ${discordName} - Article: ${selectedProduct.name} (${selectedProduct.price} Vifs d'or)`);
-            }, 1000);
-        }
-        
-        window.onclick = function(event) {
-            const modal = document.getElementById('ticketModal');
-            if (event.target == modal) {
-                closeTicket();
-            }
-        }
-    </script>
-</body>
-</html>
