@@ -340,7 +340,6 @@
             background: linear-gradient(135deg, #32cd32, #00ff7f);
         }
         
-        /* Modal Styles ARK Themed */
         .modal {
             display: none;
             position: fixed;
@@ -558,7 +557,7 @@
         </div>
         
         <div class="products">
-            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Armure complète mythique (hors tenue tek)', 1000, '🛡️', this.getAttribute('data-draft-ticket-id'))">
+            <div class="product-item" data-draft-ticket-id="1416819876693151801" onclick="openTicket('Armure complète mythique (hors tenue tek)', 1000, '🛡️', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🛡️</div>
                 <div class="product-info">
                     <div class="product-name">1 Armure complète mythique<br>(hors tenue tek)</div>
@@ -573,7 +572,7 @@
                 </button>
             </div>
             
-            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Armure tek complète', 1500, '🤖', this.getAttribute('data-draft-ticket-id'))">
+            <div class="product-item" data-draft-ticket-id="1416819876693151802" onclick="openTicket('Armure tek complète', 1500, '🤖', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🤖</div>
                 <div class="product-info">
                     <div class="product-name">1 Armure tek complète</div>
@@ -588,7 +587,7 @@
                 </button>
             </div>
             
-            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Outil mythique', 250, '⚒️', this.getAttribute('data-draft-ticket-id'))">
+            <div class="product-item" data-draft-ticket-id="1416819876693151803" onclick="openTicket('Outil mythique', 250, '⚒️', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">⚒️</div>
                 <div class="product-info">
                     <div class="product-name">1 Outil mythique</div>
@@ -618,7 +617,7 @@
                 </button>
             </div>
             
-            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Selle mythique', 500, '🐎', this.getAttribute('data-draft-ticket-id'))">
+            <div class="product-item" data-draft-ticket-id="1416819876693151805" onclick="openTicket('Selle mythique', 500, '🐎', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🐎</div>
                 <div class="product-info">
                     <div class="product-name">1 Selle mythique</div>
@@ -633,7 +632,7 @@
                 </button>
             </div>
             
-            <div class="product-item" data-draft-ticket-id="1416819876693151804" onclick="openTicket('Canne à pêche mythique', 1000, '🎣', this.getAttribute('data-draft-ticket-id'))">
+            <div class="product-item" data-draft-ticket-id="1416819876693151806" onclick="openTicket('Canne à pêche mythique', 1000, '🎣', this.getAttribute('data-draft-ticket-id'))">
                 <div class="product-image">🎣</div>
                 <div class="product-info">
                     <div class="product-name">1 Canne à pêche mythique</div>
@@ -719,3 +718,109 @@
             
             if (!discordName) {
                 alert('Veuillez entrer votre nom Discord!');
+                return;
+            }
+            
+            // Données du ticket à envoyer
+            const ticketData = {
+                discordName: discordName,
+                product: selectedProduct.name,
+                price: selectedProduct.price,
+                icon: selectedProduct.icon,
+                draftTicketId: selectedProduct.draftTicketId,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Générer un numéro de ticket unique
+            const ticketNumber = Math.floor(Math.random() * 900000) + 100000;
+            
+            // Envoyer vers Discord
+            sendToDiscord(ticketData, ticketNumber);
+            
+            // Afficher le succès
+            showTicketSuccess(ticketNumber);
+        }
+        
+        function sendToDiscord(ticketData, ticketNumber) {
+            // 🎯 METTEZ VOTRE WEBHOOK DISCORD ICI 👇👇👇
+            const webhookURL = 'https://discord.com/api/webhooks/VOTRE_ID/VOTRE_TOKEN';
+            
+            const embed = {
+                title: "🛒 Nouvelle Commande - ARK CHILL FAMILY",
+                color: 0x00BFFF,
+                fields: [
+                    {
+                        name: "👤 Client Discord",
+                        value: ticketData.discordName,
+                        inline: true
+                    },
+                    {
+                        name: "📦 Article",
+                        value: `${ticketData.icon} ${ticketData.product}`,
+                        inline: true
+                    },
+                    {
+                        name: "💰 Prix",
+                        value: `${ticketData.price} Vifs d'or`,
+                        inline: true
+                    },
+                    {
+                        name: "🎫 Numéro de Ticket",
+                        value: `#${ticketNumber}`,
+                        inline: true
+                    },
+                    {
+                        name: "🤖 Draft Bot ID",
+                        value: ticketData.draftTicketId,
+                        inline: true
+                    },
+                    {
+                        name: "⏰ Heure",
+                        value: new Date().toLocaleString('fr-FR'),
+                        inline: true
+                    }
+                ],
+                footer: {
+                    text: "ARK CHILL FAMILY Shop"
+                },
+                timestamp: ticketData.timestamp
+            };
+            
+            // Envoi vers Discord
+            fetch(https://discord.com/api/v10/webhooks/1416822680086118564/mpF2SzCWpwpqqParLJQCX-REd86jxaAzFu2MSW8ni2q8Hu5scdxnv8ZBP3B-hhAed1O7, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    embeds: [embed]
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    console.log('Ticket envoyé avec succès à Discord');
+                } else {
+                    console.error('Erreur lors de l\'envoi du ticket');
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+            });
+        }
+        
+        function showTicketSuccess(ticketNumber) {
+            document.getElementById('ticketForm').style.display = 'none';
+            document.getElementById('ticketSuccess').style.display = 'block';
+            document.getElementById('ticketNum').textContent = ticketNumber;
+        }
+        
+        // Fermer le modal en cliquant à l'extérieur
+        window.onclick = function(event) {
+            const modal = document.getElementById('ticketModal');
+            if (event.target == modal) {
+                closeTicket();
+            }
+        }
+    </script>
+</body>
+</html>
