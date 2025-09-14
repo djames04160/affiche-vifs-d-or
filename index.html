@@ -16,6 +16,94 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Fond animé ARK */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .dino-shadow {
+            position: absolute;
+            opacity: 0.05;
+            animation: dino-move 20s infinite linear;
+            font-size: 4em;
+            color: #00ffff;
+            text-shadow: 0 0 20px rgba(0,255,255,0.3);
+        }
+        
+        .dino-shadow:nth-child(1) { top: 10%; left: -10%; animation-delay: 0s; }
+        .dino-shadow:nth-child(2) { top: 60%; left: -15%; animation-delay: 7s; }
+        .dino-shadow:nth-child(3) { top: 30%; left: -12%; animation-delay: 14s; }
+        
+        @keyframes dino-move {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+        
+        .floating-crystals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .crystal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #00ffff, #ff6400);
+            border-radius: 3px;
+            animation: float-crystal 15s infinite linear;
+            opacity: 0.1;
+            transform: rotate(45deg);
+            box-shadow: 0 0 15px rgba(0,255,255,0.3);
+        }
+        
+        .crystal:nth-child(4) { top: 20%; left: -5%; animation-delay: 0s; }
+        .crystal:nth-child(5) { top: 70%; left: -8%; animation-delay: 5s; }
+        .crystal:nth-child(6) { top: 40%; left: -6%; animation-delay: 10s; }
+        
+        @keyframes float-crystal {
+            0% { transform: translateX(-50px) rotate(45deg); }
+            100% { transform: translateX(calc(100vw + 50px)) rotate(405deg); }
+        }
+        
+        .energy-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #00ffff;
+            border-radius: 50%;
+            animation: particle-float 8s infinite;
+            opacity: 0.6;
+            box-shadow: 0 0 10px #00ffff;
+        }
+        
+        .particle:nth-child(7) { top: 25%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(8) { top: 15%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(9) { top: 65%; left: 20%; animation-delay: 4s; }
+        .particle:nth-child(10) { top: 85%; left: 70%; animation-delay: 6s; }
+        .particle:nth-child(11) { top: 45%; left: 90%; animation-delay: 1s; }
+        .particle:nth-child(12) { top: 75%; left: 5%; animation-delay: 3s; }
+        
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0px) scale(1); opacity: 0.3; }
+            50% { transform: translateY(-30px) scale(1.5); opacity: 0.8; }
         }
         
         .poster {
@@ -32,6 +120,7 @@
             padding: 30px;
             box-sizing: border-box;
             border: 2px solid #00ffff;
+            z-index: 10;
         }
         
         .poster::before {
@@ -181,6 +270,9 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
         }
         
         .pack::before {
@@ -197,18 +289,22 @@
         
         .pack:hover {
             border-color: #00ffff;
-            transform: translateX(8px);
+            transform: translateX(8px) scale(1.02);
             box-shadow: 
-                0 6px 25px rgba(0,255,255,0.2),
+                0 8px 30px rgba(0,255,255,0.3),
                 inset 0 1px 0 rgba(0,255,255,0.2);
             background: linear-gradient(135deg, 
-                rgba(0,255,255,0.08) 0%, 
-                rgba(0,255,255,0.12) 50%, 
-                rgba(0,255,255,0.06) 100%);
+                rgba(0,255,255,0.12) 0%, 
+                rgba(0,255,255,0.16) 50%, 
+                rgba(0,255,255,0.08) 100%);
         }
         
         .pack:hover::before {
             opacity: 1;
+        }
+        
+        .pack:active {
+            transform: translateX(6px) scale(0.98);
         }
         
         .pack-price {
@@ -269,7 +365,6 @@
             font-size: 1.3em;
             filter: drop-shadow(0 0 5px #ff6400);
         }
-
         
         .footer {
             position: absolute;
@@ -309,15 +404,22 @@
     </style>
 </head>
 <body>
-    <div class="floating-elements">
-        <div class="ark-crystal"></div>
-        <div class="ark-crystal"></div>
-        <div class="ark-crystal"></div>
-        <div class="ark-crystal"></div>
-        <div class="ark-crystal"></div>
-        <div class="energy-stream"></div>
-        <div class="energy-stream"></div>
-        <div class="energy-stream"></div>
+    <!-- Fond animé ARK -->
+    <div class="background-animation">
+        <div class="floating-crystals">
+            <div class="dino-shadow">🦖</div>
+            <div class="dino-shadow">🦕</div>
+            <div class="dino-shadow">🦴</div>
+            <div class="crystal"></div>
+            <div class="crystal"></div>
+            <div class="crystal"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
     </div>
 
     <div class="poster">
@@ -343,30 +445,30 @@
         <div class="dino-silhouette"></div>
         
         <div class="packs-container">
-            <div class="pack">
+            <a href="https://www.paypal.com/paypalme/ArkMonark/2EUR" target="_blank" class="pack">
                 <span class="pack-price">2€</span>
                 <span class="pack-amount">1 000 VIFS D'OR</span>
-            </div>
+            </a>
             
-            <div class="pack">
+            <a href="https://www.paypal.com/paypalme/ArkMonark/5EUR" target="_blank" class="pack">
                 <span class="pack-price">5€</span>
                 <span class="pack-amount">2 500 VIFS D'OR</span>
-            </div>
+            </a>
             
-            <div class="pack">
+            <a href="https://www.paypal.com/paypalme/ArkMonark/10EUR" target="_blank" class="pack">
                 <span class="pack-price">10€</span>
                 <span class="pack-amount">5 000 VIFS D'OR</span>
-            </div>
+            </a>
             
-            <div class="pack">
+            <a href="https://www.paypal.com/paypalme/ArkMonark/15EUR" target="_blank" class="pack">
                 <span class="pack-price">15€</span>
                 <span class="pack-amount">7 500 VIFS D'OR</span>
-            </div>
+            </a>
             
-            <div class="pack">
+            <a href="https://www.paypal.com/paypalme/ArkMonark/20EUR" target="_blank" class="pack">
                 <span class="pack-price">20€</span>
                 <span class="pack-amount">10 000 VIFS D'OR</span>
-            </div>
+            </a>
             
             <div class="pack special-offer">
                 <span class="pack-price">
@@ -375,10 +477,6 @@
                 <span class="pack-amount">2 500 VIFS D'OR</span>
             </div>
         </div>
-        
-        <a href="https://www.paypal.com/paypalme/ArkMonark" target="_blank" class="paypal-button">
-            💳 PAYER AVEC PAYPAL
-        </a>
         
         <div class="footer">
             ⚡ DOMINEZ L'ARCHE ⚡
