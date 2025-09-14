@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -270,6 +271,34 @@
             filter: drop-shadow(0 0 5px #ff6400);
         }
         
+        .paypal-button {
+            display: block;
+            background: linear-gradient(135deg, #0070ba 0%, #003087 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+            margin: 25px auto 10px;
+            width: 80%;
+            box-shadow: 0 8px 25px rgba(0,112,186,0.3);
+            transition: all 0.3s ease;
+            border: 2px solid #0070ba;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .paypal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,112,186,0.4);
+            background: linear-gradient(135deg, #0078d4 0%, #004080 100%);
+            border-color: #00ffff;
+        }
+        
         .footer {
             position: absolute;
             bottom: 25px;
@@ -308,6 +337,17 @@
     </style>
 </head>
 <body>
+    <div class="floating-elements">
+        <div class="ark-crystal"></div>
+        <div class="ark-crystal"></div>
+        <div class="ark-crystal"></div>
+        <div class="ark-crystal"></div>
+        <div class="ark-crystal"></div>
+        <div class="energy-stream"></div>
+        <div class="energy-stream"></div>
+        <div class="energy-stream"></div>
+    </div>
+
     <div class="poster">
         <div class="tech-lines">
             <div class="line"></div>
@@ -331,38 +371,42 @@
         <div class="dino-silhouette"></div>
         
         <div class="packs-container">
-            <a href="https://www.paypal.me/ArkMonark" target="_blank" class="pack">
+            <div class="pack">
                 <span class="pack-price">2€</span>
                 <span class="pack-amount">1 000 VIFS D'OR</span>
-            </a>
+            </div>
             
-            <a href="https://www.paypal.me/ArkMonark" target="_blank" class="pack">
+            <div class="pack">
                 <span class="pack-price">5€</span>
                 <span class="pack-amount">2 500 VIFS D'OR</span>
-            </a>
+            </div>
             
-            <a href="" target="_blank" class="pack">
+            <div class="pack">
                 <span class="pack-price">10€</span>
                 <span class="pack-amount">5 000 VIFS D'OR</span>
-            </a>
+            </div>
             
-            <a href="https://www.paypal.me/ArkMonark" target="_blank" class="pack">
+            <div class="pack">
                 <span class="pack-price">15€</span>
                 <span class="pack-amount">7 500 VIFS D'OR</span>
-            </a>
+            </div>
             
-            <a href="https://www.paypal.me/ArkMonark" target="_blank" class="pack">
+            <div class="pack">
                 <span class="pack-price">20€</span>
                 <span class="pack-amount">10 000 VIFS D'OR</span>
-            </a>
+            </div>
             
-            <a href="VOTRE_LIEN_DISCORD_BOOST" target="_blank" class="pack special-offer">
+            <div class="pack special-offer">
                 <span class="pack-price">
                     <span class="discord-icon">⚡</span>1 Boost Discord
                 </span>
                 <span class="pack-amount">2 500 VIFS D'OR</span>
-            </a>
+            </div>
         </div>
+        
+        <a href="VOTRE_LIEN_PAYPAL" target="_blank" class="paypal-button">
+            💳 PAYER AVEC PAYPAL
+        </a>
         
         <div class="footer">
             ⚡ DOMINEZ L'ARCHE ⚡
